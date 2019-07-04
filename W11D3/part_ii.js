@@ -1,6 +1,16 @@
-// Object Oriented JS
+// functions accept more args than asked for?
+// we use semicolons on statments in addition to nested functions or callbacks?
+// scope of let limited to current function or can it be passed to nested function?
+// difference between function types and syntax (ex: constructor)
+// function Test(){} = constructor function
+context = this
+// fat arrow passes along 'this' (current instance of opening function?)
+// default to using const
+// you can redeclare var variables but you get an error when redclaring let variables?
+// are callbacks nested?
 
-// Phase I - Callbacks
+//fat arrows or vars can be called back?
+example: 
 
 // defining the function
 function titleize(names, callback) {
@@ -8,52 +18,11 @@ function titleize(names, callback) {
   callback(titleized);
 };
 
+
 // invoking the function
 titleize(["Mary", "Brian", "Leo"], (names) => {
   names.forEach(name => console.log(name));
 });
 
-// Phase II - Constructors, Prototypes, and `this`
-
-function Elephant(name, height, tricks) {
-  this.name = name;
-  this.height = height;
-  this.tricks = tricks;
-}
-
-Elephant.prototype.trumpet = function () {
-  console.log(`${this.name} the elephant goes 'phrRRRRRRRRRRR!!!!!!!'`);
-};
-
-Elephant.prototype.grow = function () {
-  this.height = this.height + 12;
-};
-
-Elephant.prototype.addTrick = function (trick) {
-  this.tricks.push(trick);
-};
-
-Elephant.prototype.play = function () {
-  trickIndex = Math.floor(Math.random() * this.tricks.length);
-  console.log(`${this.name} is ${this.tricks[trickIndex]}!`);
-};
-
-// Phase III - Function Invocation
-
-Elephant.paradeHelper = function (elephant) {
-  console.log(`${elephant.name} is trotting by!`);
-};
 
 
-
-// Phase IV - Closures
-
-function dinerBreakfast() {
-  let order = "I'd like cheesy scrambled eggs please.";
-  console.log(order);
-
-  return function (food) {
-    order = `${order.slice(0, order.length - 8)} and ${food} please.`;
-    console.log(order);
-  };
-};
